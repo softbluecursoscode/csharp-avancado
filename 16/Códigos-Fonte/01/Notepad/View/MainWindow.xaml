@@ -1,0 +1,69 @@
+﻿<Window x:Class="Softblue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sb="clr-namespace:Softblue"
+        Title="{Binding WindowTitle}" 
+        Height="{Binding Source={StaticResource Settings}, Path=Default.WindowHeight, Mode=TwoWay}"
+        Width="{Binding Source={StaticResource Settings}, Path=Default.WindowWidth, Mode=TwoWay}" 
+        Left="{Binding Source={StaticResource Settings}, Path=Default.WindowLeft, Mode=TwoWay}" 
+        Top="{Binding Source={StaticResource Settings}, Path=Default.WindowTop, Mode=TwoWay}"
+        WindowState="{Binding Source={StaticResource Settings}, Path=Default.WindowState, Mode=TwoWay}"
+        WindowStartupLocation="Manual"
+        MinHeight="300"
+        MinWidth="300"
+        FocusManager.FocusedElement="{Binding ElementName=txtContent}" Closing="Window_Closing">
+
+    <Window.DataContext>
+        <sb:ContentViewModel x:Name="viewModel" />
+    </Window.DataContext>
+
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Padding="2">
+            <MenuItem Header="_Arquivo">
+                <MenuItem Name="mnuNew" Header="_Novo" Command="{Binding NewFileCommand}" />
+                <MenuItem Name="mnuOpen" Header="A_brir..." Command="{Binding OpenFileCommand}" />
+                <MenuItem Name="mnuSave" Header="Salva_r" Command="{Binding SaveFileCommand}" />
+                <MenuItem Name="mnuSaveAs" Header="Sal_var como..." Command="{Binding SaveAsFileCommand}" />
+                <Separator />
+                <MenuItem Name="mnuExit" Header="_Sair" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="_Editar">
+                <MenuItem Header="_Recortar" Command="ApplicationCommands.Cut" />
+                <MenuItem Header="_Copiar" Command="ApplicationCommands.Copy" />
+                <MenuItem Header="Co_lar" Command="ApplicationCommands.Paste" />
+                <Separator />
+                <MenuItem Header="Selecionar _tudo" Command="ApplicationCommands.SelectAll" />
+            </MenuItem>
+            <MenuItem Header="_Formatar">
+                <MenuItem Name="mnuWrap" Header="_Quebra automática de linha" IsCheckable="true" IsChecked="{Binding LineWrap, Mode=TwoWay}" />
+            </MenuItem>
+            <MenuItem Header="Aj_uda">
+                <MenuItem Name="mnuAbout" Header="_Sobre..." Command="{Binding ShowAboutDialogCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Name="statusBar" Text="{Binding StatusBarText}" />
+        </StatusBar>
+
+        <Grid>
+            <TextBox Name="txtContent" Text="{Binding Path=Content.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" Padding="2" FontFamily="Courier New" FontSize="14" TextChanged="txtContent_TextChanged" SelectionChanged="txtContent_SelectionChanged">
+                <TextBox.HorizontalScrollBarVisibility>
+                    <Binding Path="ShowHorizontalScrollBar">
+                        <Binding.Converter>
+                            <sb:BoolToScrollBarVisibilityConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </TextBox.HorizontalScrollBarVisibility>
+                <TextBox.TextWrapping>
+                    <Binding Path="LineWrap">
+                        <Binding.Converter>
+                            <sb:BoolToLineWrapConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </TextBox.TextWrapping>
+            </TextBox>
+        </Grid>
+    </DockPanel>
+
+</Window>

@@ -1,0 +1,10 @@
+﻿<Application x:Class="CadCliente.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:s="clr-namespace:CadCliente"
+             StartupUri="View/MainWindow.xaml"
+             Exit="Application_Exit">
+    <Application.Resources>
+        <s:Settings x:Key="Settings" />
+    </Application.Resources>
+</Application>

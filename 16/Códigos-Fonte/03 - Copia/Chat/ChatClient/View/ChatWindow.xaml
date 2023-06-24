@@ -1,0 +1,34 @@
+﻿<Window x:Class="Chat.Client.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:Chat.Client"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="{Binding Title, Mode=TwoWay}"
+        Height="{Binding Source={StaticResource Settings}, Path=Default.WindowHeight, Mode=TwoWay}"
+        Width="{Binding Source={StaticResource Settings}, Path=Default.WindowWidth, Mode=TwoWay}"
+        Top="{Binding Source={StaticResource Settings}, Path=Default.WindowTop, Mode=TwoWay}"
+        Left="{Binding Source={StaticResource Settings}, Path=Default.WindowLeft, Mode=TwoWay}"
+        WindowState="{Binding Source={StaticResource Settings}, Path=Default.WindowState, Mode=TwoWay}"
+        MinHeight="300" MinWidth="300" WindowStartupLocation="Manual"
+        FocusManager.FocusedElement="{Binding ElementName=txtMessage}" Closing="Window_Closing">
+    
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="txtMessages" Grid.Row="0" Grid.Column="0" IsReadOnly="True" Text="{Binding Messages}" AcceptsReturn="True" Padding="2" VerticalScrollBarVisibility="Visible" />
+        
+        <ListBox Grid.Row="0" Grid.Column="1" Width="150" Margin="5,0,0,0" ItemsSource="{Binding Names, Mode=TwoWay}" />
+        
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="True" Margin="0,5,0,0">
+            <Button Name="btnSend" DockPanel.Dock="Right" Content="Enviar" Width="60" Margin="10,0,0,0" Command="{Binding SendCommand}" />
+            <TextBox Name="txtMessage" VerticalAlignment="Center" HorizontalAlignment="Stretch" Padding="2" Text="{Binding Message}" KeyDown="txtMessage_KeyDown" />
+        </DockPanel>
+    </Grid>
+</Window>

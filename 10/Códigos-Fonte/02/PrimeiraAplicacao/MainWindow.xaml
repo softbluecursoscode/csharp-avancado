@@ -1,0 +1,10 @@
+﻿<Window x:Class="PrimeiraAplicacao.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Minha Aplicação" Height="350" Width="525">
+    <Grid>
+        <Button Content="Clique Aqui" HorizontalAlignment="Left" Margin="178,75,0,0" VerticalAlignment="Top" Width="153" Height="44" Click="Button_Click"/>
+        <Label x:Name="texto" Content="" HorizontalAlignment="Left" Margin="178,148,0,0" VerticalAlignment="Top" Height="32" Width="153"/>
+
+    </Grid>
+</Window>

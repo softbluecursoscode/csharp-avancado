@@ -1,0 +1,39 @@
+﻿<Window x:Class="Conversion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Conversion"
+        xml:lang="pt-BR"
+        Title="MainWindow" Height="164.989" Width="525" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized">
+
+    <GroupBox Margin="5" Header="Cliente">
+        <Grid Name="gridCliente" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Nome:" Grid.Row="0" Grid.Column="0" />
+            <TextBox x:Name="txtNome" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Padding="2" Text="{Binding Path=Nome}" />
+
+            <Label Content="Altura:" Grid.Row="1" Grid.Column="0" />
+            <TextBox x:Name="txtAltura" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Padding="2" Text="{Binding Path=Altura, StringFormat={}{0:N2}}" />
+
+            <Label Content="CPF:" Grid.Row="2" Grid.Column="0" />
+            <TextBox x:Name="txtCpf" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Padding="2">
+                <TextBox.Text>
+                    <Binding Path="Cpf">
+                        <Binding.Converter>
+                            <local:CpfConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </Grid>
+    </GroupBox>
+</Window>

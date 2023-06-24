@@ -1,0 +1,26 @@
+﻿<Window x:Class="Softblue.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sobre o Bloco de Notas" Height="230" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel LastChildFill="True" Grid.Row="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="/Images/logo_softblue.png"  Stretch="None" />
+                </Label>
+                <Separator Height="5" />
+            </StackPanel>
+            <TextBlock DockPanel.Dock="Bottom" Text="Desenvolvido para o curso de C# da Softblue" TextWrapping="Wrap" HorizontalAlignment="Center" />
+
+            <Label Content="Bloco de Notas" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" />
+        </DockPanel>
+
+        <Button Name="btnOk" Grid.Row="1" Content="OK" Height="25" Width="60" HorizontalAlignment="Right" Margin="0,15,0,0" Click="btnOk_Click" />
+    </Grid>
+</Window>

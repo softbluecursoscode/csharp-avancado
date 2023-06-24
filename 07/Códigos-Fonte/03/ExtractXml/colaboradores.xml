@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<colaboradores>
+  <colaborador codigo="372" tipo="Funcionario">
+    <nome>José da Silva</nome>
+    <idade>32</idade>
+  </colaborador>
+  <colaborador codigo="636" tipo="Funcionario">
+    <nome>Mário de Almeida</nome>
+    <idade>40</idade>
+  </colaborador>
+  <colaborador codigo="783" tipo="Terceirizado">
+    <nome>Luis Santana</nome>
+    <idade>35</idade>
+  </colaborador>
+  <colaborador codigo="655" tipo="Terceirizado">
+    <nome>Carlos Oliveira</nome>
+    <idade>27</idade>
+  </colaborador>
+  <colaborador codigo="230" tipo="Terceirizado">
+    <nome>Rita Neves</nome>
+    <idade>30</idade>
+  </colaborador>
+  <colaborador codigo="971" tipo="Funcionario">
+    <nome>Rose Mendonça</nome>
+    <idade>38</idade>
+  </colaborador>
+</colaboradores>

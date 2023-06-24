@@ -1,0 +1,29 @@
+﻿<Window x:Class="BindingControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Binding" Height="382.075" Width="638.208" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <GroupBox Header="Source" Grid.Row="0" Grid.Column="0" Margin="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Slider Name="slider" Margin="10,0,10,0" Maximum="100" />
+            </StackPanel>
+        </GroupBox>
+        
+        <GroupBox Header="Target" Grid.Row="0" Grid.Column="1" Margin="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Label x:Name="label" Margin="10,0,10,0" Content="{Binding ElementName=slider, Path=Value}" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+                <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="3" Margin="10,10,10,0" />
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="Softblue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Texto" Height="350" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBox Name="txtLeft" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" />
+        <TextBox Name="txtRight" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding ElementName=txtLeft, Path=Text}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding ElementName=txtLeft, Path=Text.Length}" FontSize="15" FontWeight="Bold" />
+    </Grid>
+</Window>

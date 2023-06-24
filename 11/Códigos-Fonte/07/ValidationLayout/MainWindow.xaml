@@ -1,0 +1,29 @@
+﻿<Window x:Class="Validation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Validation"
+        Title="MainWindow" Height="150" Width="525" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized">
+    <StackPanel Margin="5">
+        <Label Content="ID:" FontWeight="Bold" />
+        <TextBox Name="txtId" FontSize="13" Padding="3">
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:SizeValidator MaxSize="10" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <Border BorderThickness="2" BorderBrush="Blue">
+                            <AdornedElementPlaceholder />
+                        </Border>
+                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" FontWeight="Bold" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button Name="btnProcurar" Content="Procurar" Width="80" Height="30" Margin="0,10,0,0" HorizontalAlignment="Right" />
+    </StackPanel>
+</Window>

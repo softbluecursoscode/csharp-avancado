@@ -1,0 +1,40 @@
+﻿<Window x:Class="Softblue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Editor" Height="350" Width="525" MinWidth="525" MinHeight="350">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" VerticalAlignment="Top" Padding="0,2,0,2">
+            <MenuItem Header="_Arquivo">
+                <MenuItem Name="mnuSair" Header="_Sair" Click="mnuSair_Click" />
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            
+                <TextBlock Name="statusBar" Grid.Row="0" Grid.Column="0" Text="C# Avançado - Softblue" Padding="2,0,2,0" MouseEnter="statusBar_MouseEnter" MouseLeave="statusBar_MouseLeave" />
+                
+            </Grid>
+        </StatusBar>
+
+        <Grid Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Name="txt1" Grid.Row="0" Grid.Column="0" Margin="0,0,2,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" TextChanged="txt1_TextChanged" />
+            <TextBox Name="txt2" Grid.Row="0" Grid.Column="1" Margin="2,0,0,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" IsReadOnly="True" />
+        </Grid>
+    </DockPanel>
+</Window>

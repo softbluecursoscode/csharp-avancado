@@ -1,0 +1,33 @@
+﻿<Window x:Class="Softblue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pessoas" Height="280" Width="525" Initialized="Window_Initialized" WindowStartupLocation="CenterScreen" MinHeight="280" MinWidth="300">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Name="listPessoas" Grid.Row="0" Grid.Column="0" DisplayMemberPath="NomeCompleto" />
+
+        <Grid Name="gridPessoa" Grid.Row="1" Grid.Column="0" DataContext="{Binding ElementName=listPessoas, Path=SelectedItem}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Nome:" Grid.Row="0" Grid.Column="0" Margin="0,10,0,0" Grid.RowSpan="2" />
+            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="14" Padding="2" Text="{Binding Path=Nome, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0" />
+
+            <Label Content="Sobrenome:" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0" Grid.RowSpan="2" />
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="14" Padding="2" Text="{Binding Path=Sobrenome, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0" Grid.RowSpan="2" />
+        </Grid>
+    </Grid>
+</Window>
